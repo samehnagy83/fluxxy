@@ -53,18 +53,12 @@ class _AppInitState extends State<AppInit> {
       await userModel.loadFromStorage();
 
       // 4️⃣ انتظار بسيط لتزامن المدة مع شاشة الـ Splash
-      await Future.delayed(
-        Duration(milliseconds: LoadingConfig.splashScreen['duration'] as int),
-      );
+      // await Future.delayed(
+      //   Duration(milliseconds: LoadingConfig.splashScreen['duration'] as int),
+      // );
 
       // 5️⃣ بعد التحميل نقرر الوجهة
       if (!mounted) return;
-
-      // if (userModel.loggedIn) {
-      //   Navigator.of(context).pushReplacementNamed(AppConstants.routeHome);
-      // } else {
-      //   Navigator.of(context).pushReplacementNamed(AppConstants.routeLogin);
-      // }
       
       Navigator.of(context).pushReplacementNamed(AppConstants.routeHome);
     } catch (e) {
@@ -75,47 +69,6 @@ class _AppInitState extends State<AppInit> {
       setState(() => _initializing = false);
     }
   }
-
-  
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     backgroundColor: ThemeConfig.backgroundColor,
-  //     body: Center(
-  //       child: _initializing
-  //           ? Column(
-  //               mainAxisSize: MainAxisSize.min,
-  //               children: const [
-  //                 CircularProgressIndicator(),
-  //                 SizedBox(height: 20),
-  //                 Text(
-  //                   'Preparing the application...',
-  //                   style: TextStyle(fontSize: 16),
-  //                 ),
-  //               ],
-  //             )
-  //           : _errorMessage != null
-  //               ? Column(
-  //                   mainAxisSize: MainAxisSize.min,
-  //                   children: [
-  //                     const Icon(Icons.error_outline, color: Colors.red, size: 48),
-  //                     const SizedBox(height: 12),
-  //                     Text(
-  //                       _errorMessage!,
-  //                       textAlign: TextAlign.center,
-  //                       style: const TextStyle(color: Colors.red, fontSize: 16),
-  //                     ),
-  //                     const SizedBox(height: 20),
-  //                     ElevatedButton(
-  //                       onPressed: _initializeApp,
-  //                       child: const Text('try again'),
-  //                     ),
-  //                   ],
-  //                 )
-  //               : const Text('Data uploaded successfully ✅'),
-  //     ),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +123,7 @@ class _AppInitState extends State<AppInit> {
                     ],
                   )
                 : const Text(
-                    'Data uploaded successfully ✅',
+                    'Data prepared successfully ✅',
                     style: TextStyle(fontSize: 16, color: ThemeConfig.textColor),
                   ),
       ),

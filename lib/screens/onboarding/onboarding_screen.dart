@@ -38,7 +38,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   /// 🔹 عند الضغط على "ابدأ الآن"
   Future<void> _completeOnboarding() async {
-    await LocalStorage.setBool('seen_onboarding', true);
+    await LocalStorage.setBool('seen_onboarding', false);
     if (!mounted) return;
     Navigator.of(context).pushReplacementNamed(AppConstants.routeHome);
   }
