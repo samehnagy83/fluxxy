@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'), // نصوص الواجهة بالإنجليزي
+        title: const Text('Home'), 
         actions: [
           IconButton(
             tooltip: 'Search',

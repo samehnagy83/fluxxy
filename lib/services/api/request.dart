@@ -22,7 +22,9 @@ class Request {
   /// Throws a DioError if the request fails.
   ///
   /// Throws an exception if an unexpected error occurs.
-/*******  6b6c6bfc-3328-4391-95da-27154c8c68a5  *******/  static Future<Response?> post(String url, {Map<String, dynamic>? data}) async {
+/*******  6b6c6bfc-3328-4391-95da-27154c8c68a5  *******/  
+
+static Future<Response?> post(String url, {Map<String, dynamic>? data}) async {
     try {
       return await DioClient.instance.post(url, data: data);
     } on DioError catch (e) {
@@ -72,5 +74,20 @@ class Request {
     print('⚠️ API Error: $message');
     return message;
   }
+
+
+  // دالة GET برابط كامل (للواجهات اللي خارج baseUrl العام)
+  static Future<Response?> getAbsolute(String fullUrl) async {
+    try {
+      return await DioClient.instance.getUri(Uri.parse(fullUrl));
+    } on DioError catch (e) {
+      _handleError(e);
+      return null;
+    } catch (e) {
+      print('GET absolute error: $e');
+      return null;
+    }
+  }
+
 
 }

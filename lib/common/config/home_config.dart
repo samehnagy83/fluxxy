@@ -17,22 +17,28 @@ class HomeConfig {
     {
       'type': 'categoryStrip',
       'title': 'Shop by Category',
-      'items': [
-        {'icon': 'assets/images/instagram.png', 'name': 'Electronics'},
-        {'icon': 'assets/images/instagram.png', 'name': 'Fashion'},
-        {'icon': 'assets/images/instagram.png', 'name': 'Beauty'},
-        {'icon': 'assets/images/instagram.png', 'name': 'Home'},
-        {'icon': 'assets/images/instagram.png', 'name': 'Toys'},
-      ],
+      // ✅ اجعل المصدر ديناميك من الـ API
+      'source': {
+        'provider': 'dummyjson',
+        'limit': 12, // اختياري: أقصى عدد فئات
+      },
+
+      // ✅ (اختياري) ماب لصور فئات مخصصة لو حابب تربط صور لكل فئة
+      // لو مش محدد، هنستخدم fallback avatar بحرف الفئة
+      'categoryImages': {
+        // 'smartphones': 'https://your-cdn.com/cat_smartphones.png',
+        // 'laptops': 'https://your-cdn.com/cat_laptops.png',
+      },
     },
+
     {
       'type': 'productGrid',
       'title': 'Featured Products',
       'layout': 'grid2', // grid2 | grid3 (اختيارية)
       'source': {
-        // لاحقًا تتبدّل بنداءات API (فلترة/تصنيف/كلمة مفتاحية)
+        'provider': 'dummyjson',
         'method': 'featured',
-        'limit': 8,
+        'limit': 26,
       },
     },
   ];
