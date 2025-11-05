@@ -3,7 +3,6 @@ import 'package:fluxxy/common/config/theme_config.dart';
 import 'package:fluxxy/models/user_model.dart';
 import 'package:provider/provider.dart';
 import 'common/tools/constants.dart';
-import 'common/config/app_config.dart';
 import 'common/storage/local_storage.dart';
 
 /// ⚙️ AppInit
